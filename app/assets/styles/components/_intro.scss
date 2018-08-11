@@ -1,0 +1,38 @@
+.intro {
+  position: relative;
+  background-image: url('../images/intro-bg.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  &__welcome {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  &__name {
+    font-size: 3.5rem;
+    margin-bottom: .5rem;
+    span {
+      color: #000;
+    }
+  }
+  &__title {
+    font-size: 2rem;
+  }
+  &__read-more {
+    position: absolute;
+    left: 30%;
+    bottom: 6rem;
+    cursor: pointer;
+    i {
+      font-size: 6rem;
+      font-weight: 100;
+      animation-name: blinkingArrow;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+    }
+  }
+}

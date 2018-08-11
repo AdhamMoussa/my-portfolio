@@ -1,0 +1,37 @@
+.footer {
+  background-color: $color-gray-dark;
+  padding: 2rem 0;
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo {
+    h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+  &__info {
+    &-email {
+      a {
+        transition: .4s;
+      }
+      a:hover {
+        color: $color-primary;
+      }
+    }
+  }
+  &__social-icons {
+    a {
+      font-size: 1.25rem;
+      &:not(:last-child) {
+        margin-right: .7rem;
+      }
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}

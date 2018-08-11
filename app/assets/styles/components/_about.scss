@@ -1,0 +1,85 @@
+.about {
+  &__article {
+    &-row {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-title {
+      width: 20px;
+      background-color: $color-primary;
+      padding-top: 10rem;
+      &-inner {
+        position: sticky;
+        top: 10rem;
+      }
+      h3 {
+        position: relative;
+        font-size: 2rem;
+        white-space: nowrap;
+        // transform: translateX(-25px);
+        text-transform: uppercase;
+        background-color: $bg-color;
+        color: $color-gray-light;
+      }
+    }
+    &-main {
+      width: 70%;
+      padding-top: 10rem;
+      p {
+        font-size: 1.4rem;
+        color: $color-gray-light;
+        &:not(:last-child) {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+    &:last-child {
+      .about__article-title,
+      .about__article-main {
+        padding-bottom: 10rem;
+      }
+    }
+  }
+  &__skills {
+    &-section {
+      &:not(:last-child) {
+        margin-bottom: 8rem;
+      }
+      &-title{
+        h4 {
+          font-size: 1.4rem;
+          text-align: center;
+          text-decoration: underline;
+          margin-bottom: 4rem;
+        }
+      }
+      &-main {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        flex-wrap: wrap;
+      }
+    }
+    &-box {
+      width: 100px;
+      &-img {
+        img {
+          max-width: 100%;
+          opacity: .8;
+        }
+      }
+      &-title {
+        h5 {
+          text-align: center;
+          font-size: 1rem;
+          margin-top: .5rem;
+        }
+      }
+    }
+  }
+  &__edu {
+    li {
+      margin-bottom: 2rem;
+    }
+  }
+}

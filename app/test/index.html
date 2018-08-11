@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <a href="#/about">about</a>
+  <script src="//unpkg.com/navigo@6"></script>
+  <script>
+    var router = new Navigo(null, true);
+    router.on(function () {
+      document.querySelector('#root').innerHTML = 'Home';
+    }).resolve();
+    router.on('/about', function () {
+      document.querySelector('#root').innerHTML = 'About';
+    }).resolve();
+    router.notFound(function () {
+      document.querySelector('#root').innerHTML = 'not foundddd';
+    }).resolve();
+  </script>
+</body>
+</html>
