@@ -32,5 +32,12 @@ let gulp = require('gulp'),
     return gulp.src(['./app/home.html', './app/portfolio.html'])
       .pipe(gulp.dest('./docs'));
   });
+  gulp.task('copyFonts', function () {
+    return gulp.src('./app/temp/fonts/*')
+      .pipe(gulp.dest('./docs/assets/fonts'));
+  });
 
-  gulp.task('build', ['deleteDistFolder', 'optimizeImages', 'usemin', 'copyDataFiles']);
+  gulp.task('build', ['deleteDistFolder', 'optimizeImages', 'usemin'], function () {
+    gulp.start('copyDataFiles');
+    gulp.start('copyFonts');
+  });
