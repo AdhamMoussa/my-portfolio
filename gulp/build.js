@@ -28,4 +28,9 @@ let gulp = require('gulp'),
       .pipe(gulp.dest('./docs'))
   });
 
-  gulp.task('build', ['deleteDistFolder', 'optimizeImages', 'usemin']);
+  gulp.task('copyDataFiles', function () {
+    return gulp.src(['./app/home.html', './app/portfolio.html'])
+      .pipe(gulp.dest('./docs'));
+  });
+
+  gulp.task('build', ['deleteDistFolder', 'optimizeImages', 'usemin', 'copyDataFiles']);
