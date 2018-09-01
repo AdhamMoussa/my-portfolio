@@ -92,15 +92,15 @@ export default class Routes {
     router
       .on({
         "": function() {
-          that.routesHandler("/home.html", that.homeLink);
+          that.routesHandler("/docs/home.html", that.homeLink);
           console.log("home routing");
         },
         "/portfolio": function() {
-          that.routesHandler("/portfolio.html", that.portfolioLink);
+          that.routesHandler("/docs/portfolio.html", that.portfolioLink);
           console.log("portf routing");
         },
         "/contact": function() {
-          that.routesHandler("/contact.html", that.contactLink);
+          that.routesHandler("/docs/contact.html", that.contactLink);
         }
       })
       .resolve();
