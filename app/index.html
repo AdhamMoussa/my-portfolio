@@ -9,6 +9,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,600,700" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.css">
+  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
   <!-- Styles -->
   <!-- build:css assets/styles/styles.css -->
   <link rel="stylesheet" href="temp/styles/styles.css">
@@ -18,11 +19,13 @@
 
 <body>
   <!-- HEADER START -->
-  <header class="header header--solid" id="header">
+  <header class="header" id="header">
     <div class="wrapper">
       <div class="header__inner">
         <div class="header__logo">
-          <h1>AM</h1>
+          <a href="#/" data-navigo>
+            <h1>AM</h1>
+          </a>
         </div>
         <div class="header__menu-icon" id="menu-icon">
           <span>Menu</span>
@@ -41,28 +44,28 @@
     <div class="navigation-menu__inner">
       <nav class="navigation-menu__list">
         <div class="navigation-menu__list-item navigation-menu__list-item--active" id="home-link">
-          <a href="#/">Home</a>
+          <a href="#/" data-navigo>Home</a>
         </div>
         <div class="navigation-menu__list-item" id="portfolio-link">
-          <a href="#/portfolio">Portfolio</a>
+          <a href="#/portfolio" data-navigo>Portfolio</a>
         </div>
         <div class="navigation-menu__list-item" id="contact-link">
-          <a href="#/contact">Contact</a>
+          <a href="#/contact" data-navigo>Contact</a>
         </div>
       </nav>
       <div class="navigation-menu__footer">
         <div class="navigation-menu__social-links">
-          <a href="#">
+          <a href="https://www.linkedin.com/in/adhammoussa" target="_blank">
             <i class="fa fa-linkedin" aria-hidden="true"></i>
           </a>
-          <a href="#">
+          <a href="https://github.com/AdhamMoussa" target="_blank">
             <i class="fa fa-github" aria-hidden="true"></i>
           </a>
-          <a href="#">
-            <i class="fa fa-twitter" aria-hidden="true"></i>
-          </a>
-          <a href="#">
+          <a href="https://codepen.io/AdhamMoussa/" target="_blank">
             <i class="fa fa-codepen" aria-hidden="true"></i>
+          </a>
+          <a href="https://twitter.com/AdhamMoussa0110" target="_blank">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
           </a>
         </div>
         <div class="navigation-menu__copyright">
@@ -80,7 +83,10 @@
   </main>
   <!-- LOADING START -->
   <div class="loading" id="loading">
-    <img src="assets/images/loading.gif" alt="loading...">
+    <div class="spinner">
+      <div class="dot1"></div>
+      <div class="dot2"></div>
+    </div>
   </div>
   <!-- /LOADING END -->
   <!-- Bundled JS -->

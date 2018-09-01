@@ -1,0 +1,23 @@
+.contact {
+  min-height: 100vh;
+  &__row {
+    display: flex;
+  }
+  &__text {
+    width: 50%;
+    padding: 4rem 0;
+    font-size: 1.5rem;
+  }
+  &__title {
+    margin-bottom: 3rem;
+  }
+  &__item {
+    margin-bottom: 2rem;
+    span {
+      margin-right: 1rem;
+    }
+  }
+  &__map {
+    width: 50%;
+  }
+}

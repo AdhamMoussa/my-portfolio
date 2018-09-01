@@ -10,12 +10,22 @@ export default class Routes {
     this.homeLink = $("#home-link");
     this.portfolioLink = $("#portfolio-link");
     this.contactLink = $("#contact-link");
+    this.header = $('#header');
     this.routing();
   }
   routesHandler(dataSrc, navLink) {
     const that = this;
     // show loading page
     this.loadingElement.fadeIn(500, () => {
+      // initialize smooth scroll
+      $.getScript(
+        "https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/14.2.1/smooth-scroll.min.js",
+        () => {
+          new SmoothScroll("a.scroll-link", {
+            speed: 700
+          });
+        }
+      );
       // close nav menu
       this.navMenu.removeClass("navigation-menu--visible");
       // remove active class from all nav links
@@ -37,9 +47,12 @@ export default class Routes {
               licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
               navigation: true,
               loopBottom: true,
-              afterLoad: function () {
-                // remove loading page
-                $('#loading').fadeOut(800);
+              onLeave: function (origin, destination, direction) {
+                if (destination.index > 0) {
+                  that.header.addClass('header--solid');
+                } else {
+                  that.header.removeClass('header--solid');
+                }
               }
             });
           }
@@ -47,11 +60,31 @@ export default class Routes {
       } else {
         if (that.fullpageSlider) {
           that.fullpageSlider.destroy("all");
-          // remove loading page
-          this.loadingElement.fadeOut(500);
         }
       }
+      if (navLink === this.contactLink) {
+        $.getScript(
+          'https://maps.googleapis.com/maps/api/js?key=AIzaSyCdpFC1FwAfGw8q-qA85XIx-W6Xu4U-8Ik',
+          () => {
+            const pos = {
+              lat: 31.208683,
+              lng: 29.937724
+            };
+            const map = new google.maps.Map(
+              document.getElementById('map'), {
+                center: pos,
+                zoom: 16
+            });
+            const marker = new google.maps.Marker({
+              position: pos,
+              map: map
+            });
+          }
+      );
+      }
     });
+    // remove loading page
+    this.loadingElement.fadeOut(1000);
   }
   routing() {
     const router = new Navigo("#/", true);
@@ -59,15 +92,15 @@ export default class Routes {
     router
       .on({
         "": function() {
-          that.routesHandler("/my-portfolio/home.html", that.homeLink);
+          that.routesHandler("/home.html", that.homeLink);
           console.log("home routing");
         },
         "/portfolio": function() {
-          that.routesHandler("/my-portfolio/portfolio.html", that.portfolioLink);
+          that.routesHandler("/portfolio.html", that.portfolioLink);
           console.log("portf routing");
         },
         "/contact": function() {
-          that.routesHandler("/my-portfolio/contact.html", that.contactLink);
+          that.routesHandler("/contact.html", that.contactLink);
         }
       })
       .resolve();

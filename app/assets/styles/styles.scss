@@ -2,8 +2,9 @@
 @import '../../../node_modules/font-awesome/scss/font-awesome';
 
 @import 'base/variables';
-@import 'base/global';
 @import 'base/animations';
+@import 'base/mixins';
+@import 'base/global';
 
 @import 'components/wrapper';
 @import 'components/header';
@@ -13,4 +14,5 @@
 @import 'components/footer';
 @import 'components/loading';
 @import 'components/portfolio';
+@import 'components/contact';
 

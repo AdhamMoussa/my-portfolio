@@ -61,7 +61,10 @@
       }
     }
     &-box {
-      width: 100px;
+      width: 70px;
+      @include largeUp {
+        width: 100px;
+      }
       &-img {
         img {
           max-width: 100%;
