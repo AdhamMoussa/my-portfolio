@@ -29,7 +29,7 @@ let gulp = require('gulp'),
   });
 
   gulp.task('copyDataFiles', function () {
-    return gulp.src(['./app/home.html', './app/portfolio.html'])
+    return gulp.src(['./app/home.html', './app/portfolio.html', './app/contact.html'])
       .pipe(gulp.dest('./docs'));
   });
   gulp.task('copyFonts', function () {
