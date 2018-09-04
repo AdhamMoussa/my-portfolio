@@ -1,6 +1,6 @@
 .intro {
   position: relative;
-  background-image: url('../images/intro-bg.jpg');
+  background-image: url('../images/intro-bg-600.png');
   background-size: cover;
   background-attachment: fixed;
   height: 100vh;
@@ -11,8 +11,18 @@
   justify-content: center;
   line-height: 1.2;
   text-align: center;
+  @include smallUp {
+    background-image: url("../images/intro-bg-800.png");
+  }
   @include mediumUp {
+    background-image: url("../images/intro-bg-1000.png");
     text-align: left;
+  }
+  @include largeUp {
+    background-image: url("../images/intro-bg-1200.png");
+  }
+  @include xLargeUp {
+    background-image: url("../images/intro-bg-1600.png");
   }
   &__welcome {
     font-size: 1.5rem;

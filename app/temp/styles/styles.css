@@ -2667,6 +2667,14 @@ a {
 .padding-offset-header {
   padding-top: 10rem !important; }
 
+.lazyload,
+.lazyloading {
+  opacity: 0; }
+
+.lazyloaded {
+  opacity: 1;
+  transition: opacity 300ms; }
+
 .wrapper {
   margin: 0 auto;
   max-width: 85%; }
@@ -2682,7 +2690,9 @@ a {
   width: 100%;
   transition: .5s;
   padding: 1rem 0;
-  z-index: 1000; }
+  z-index: 1000;
+  max-width: 1600px;
+  margin: 0 auto; }
   @media only screen and (min-width: 576px) {
     .header {
       padding: 1.5rem 0; } }
@@ -2746,6 +2756,7 @@ a {
   background-color: #000;
   color: #666;
   width: 60%;
+  max-width: 960px;
   z-index: 100000;
   overflow: auto;
   transition: .25s;
@@ -2789,7 +2800,7 @@ a {
   .navigation-menu__close-icon {
     position: absolute;
     top: 4rem;
-    right: 10vw;
+    right: 20%;
     width: 30px;
     height: 30px;
     cursor: pointer; }
@@ -2809,7 +2820,7 @@ a {
 
 .intro {
   position: relative;
-  background-image: url("../images/intro-bg.jpg");
+  background-image: url("../images/intro-bg-600.png");
   background-size: cover;
   background-attachment: fixed;
   height: 100vh;
@@ -2820,9 +2831,19 @@ a {
   justify-content: center;
   line-height: 1.2;
   text-align: center; }
+  @media only screen and (min-width: 576px) {
+    .intro {
+      background-image: url("../images/intro-bg-800.png"); } }
   @media only screen and (min-width: 768px) {
     .intro {
+      background-image: url("../images/intro-bg-1000.png");
       text-align: left; } }
+  @media only screen and (min-width: 992px) {
+    .intro {
+      background-image: url("../images/intro-bg-1200.png"); } }
+  @media only screen and (min-width: 1200px) {
+    .intro {
+      background-image: url("../images/intro-bg-1600.png"); } }
   .intro__welcome {
     font-size: 1.5rem;
     margin-bottom: 1rem; }
@@ -2946,7 +2967,7 @@ a {
 .about__skills-box {
   width: 20%;
   margin: 0 6.666667% 3rem; }
-  @media only screen and (min-width: 400px) {
+  @media only screen and (min-width: 576px) {
     .about__skills-box {
       width: 70px;
       margin: 0; } }
@@ -2955,8 +2976,7 @@ a {
       width: 100px; } }
   .about__skills-box-img img {
     display: block;
-    max-width: 100%;
-    opacity: .8; }
+    max-width: 100%; }
   .about__skills-box-title h5 {
     text-align: center;
     font-size: 1rem;
@@ -3090,7 +3110,7 @@ a {
 
 .portfolio__intro {
   position: relative;
-  background-image: url("../images/portfolio-intro.jpg");
+  background-image: url("../images/portfolio-intro-600.png");
   background-size: cover;
   background-attachment: fixed;
   height: 100vh;
@@ -3100,6 +3120,18 @@ a {
   align-items: center;
   justify-content: center;
   line-height: 1.2; }
+  @media only screen and (min-width: 576px) {
+    .portfolio__intro {
+      background-image: url("../images/portfolio-intro-800.png"); } }
+  @media only screen and (min-width: 768px) {
+    .portfolio__intro {
+      background-image: url("../images/portfolio-intro-1000.png"); } }
+  @media only screen and (min-width: 992px) {
+    .portfolio__intro {
+      background-image: url("../images/portfolio-intro-1200.png"); } }
+  @media only screen and (min-width: 1200px) {
+    .portfolio__intro {
+      background-image: url("../images/portfolio-intro-1600.png"); } }
   .portfolio__intro-title {
     font-size: 2rem; }
     @media only screen and (min-width: 400px) {
@@ -3117,13 +3149,23 @@ a {
 
 .portfolio__project {
   height: 100%;
-  background-image: url("../images/projects/works.jpg");
+  background-image: url("../images/projects/works-600.png");
   background-repeat: repeat;
   padding-bottom: 4rem; }
+  @media only screen and (min-width: 576px) {
+    .portfolio__project {
+      background-image: url("../images/projects/works-800.png"); } }
   @media only screen and (min-width: 768px) {
     .portfolio__project {
       display: flex;
-      align-items: center; } }
+      align-items: center;
+      background-image: url("../images/projects/works-1000.png"); } }
+  @media only screen and (min-width: 992px) {
+    .portfolio__project {
+      background-image: url("../images/projects/works-1200.png"); } }
+  @media only screen and (min-width: 1200px) {
+    .portfolio__project {
+      background-image: url("../images/projects/works-1600.png"); } }
   @media only screen and (min-width: 768px) {
     .portfolio__project-row {
       display: flex; } }
@@ -3139,7 +3181,13 @@ a {
       .portfolio__project-img a img {
         display: block;
         margin: 0 auto;
-        height: 30vh; }
+        width: 50vw;
+        max-width: 480px;
+        -o-object-fit: contain;
+           object-fit: contain; }
+        @media only screen and (min-width: 576px) {
+          .portfolio__project-img a img {
+            width: 40vw; } }
         @media only screen and (min-width: 768px) {
           .portfolio__project-img a img {
             height: unset;

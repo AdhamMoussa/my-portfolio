@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import Header from './modules/Header';
-// import MenuLinks from './modules/MenuLinks';
 import Routes from './modules/Routes';
 
 

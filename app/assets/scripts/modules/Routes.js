@@ -15,6 +15,9 @@ export default class Routes {
     this.fullpage = false;
     this.routing();
   }
+  initLazySizes() {
+    $.getScript('https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.1/lazysizes.min.js');
+  }
   initSmoothScroll() {
     $.getScript(
       "https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/14.2.1/smooth-scroll.min.js",
@@ -113,6 +116,7 @@ export default class Routes {
     this.switchContent(dataSrc, type);
     if (type === "home") {
       this.initSmoothScroll();
+      this.initLazySizes();
     } else if (type === "portfolio") {
       this.initFullpage();
     } else if (type === "contact") {

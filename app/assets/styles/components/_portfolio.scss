@@ -1,7 +1,7 @@
 .portfolio {
   &__intro {
     position: relative;
-    background-image: url("../images/portfolio-intro.jpg");
+    background-image: url("../images/portfolio-intro-600.png");
     background-size: cover;
     background-attachment: fixed;
     height: 100vh;
@@ -11,6 +11,18 @@
     align-items: center;
     justify-content: center;
     line-height: 1.2;
+    @include smallUp {
+      background-image: url("../images/portfolio-intro-800.png");
+    }
+    @include mediumUp {
+      background-image: url("../images/portfolio-intro-1000.png");
+    }
+    @include largeUp {
+      background-image: url("../images/portfolio-intro-1200.png");
+    }
+    @include xLargeUp {
+      background-image: url("../images/portfolio-intro-1600.png");
+    }
     &-title {
       font-size: 2rem;
       @include xSmallUp {
@@ -31,12 +43,22 @@
   }
   &__project {
     height: 100%;
-    background-image: url("../images/projects/works.jpg");
+    background-image: url("../images/projects/works-600.png");
     background-repeat: repeat;
     padding-bottom: 4rem;
+    @include smallUp {
+      background-image: url("../images/projects/works-800.png");
+    }
     @include mediumUp {
       display: flex;
       align-items: center;
+      background-image: url("../images/projects/works-1000.png");
+    }
+    @include largeUp {
+      background-image: url("../images/projects/works-1200.png");
+    }
+    @include xLargeUp {
+      background-image: url("../images/projects/works-1600.png");
     }
     &-row {
       @include mediumUp {
@@ -55,7 +77,12 @@
         img {
           display: block;
           margin: 0 auto;
-          height: 30vh;
+          width: 50vw;
+          max-width: 480px;
+          object-fit: contain;
+          @include smallUp {
+            width: 40vw;
+          }
           @include mediumUp {
             height: unset;
             width: 30vw;

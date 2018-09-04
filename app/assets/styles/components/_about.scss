@@ -86,7 +86,7 @@
     &-box {
       width: 20%;
       margin: 0 6.666667% 3rem;
-      @include xSmallUp {
+      @include smallUp {
         width: 70px;
         margin: 0;
       }
@@ -97,7 +97,6 @@
         img {
           display: block;
           max-width: 100%;
-          opacity: .8;
         }
       }
       &-title {
