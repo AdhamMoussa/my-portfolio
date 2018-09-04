@@ -1,7 +1,7 @@
 .portfolio {
   &__intro {
     position: relative;
-    background-image: url("../images/portfolio-intro-600.png");
+    background-image: url("../images/portfolio-intro-1000.png");
     background-size: cover;
     background-attachment: fixed;
     height: 100vh;
@@ -12,15 +12,9 @@
     justify-content: center;
     line-height: 1.2;
     @include smallUp {
-      background-image: url("../images/portfolio-intro-800.png");
-    }
-    @include mediumUp {
-      background-image: url("../images/portfolio-intro-1000.png");
-    }
-    @include largeUp {
       background-image: url("../images/portfolio-intro-1200.png");
     }
-    @include xLargeUp {
+    @include mediumUp {
       background-image: url("../images/portfolio-intro-1600.png");
     }
     &-title {

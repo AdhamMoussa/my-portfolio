@@ -2820,8 +2820,8 @@ a {
 
 .intro {
   position: relative;
-  background-image: url("../images/intro-bg-600.png");
-  background-size: cover;
+  background-image: url("../images/intro-bg-1000.png");
+  background-size: auto 100%;
   background-attachment: fixed;
   height: 100vh;
   min-height: 500px;
@@ -2833,17 +2833,11 @@ a {
   text-align: center; }
   @media only screen and (min-width: 576px) {
     .intro {
-      background-image: url("../images/intro-bg-800.png"); } }
+      background-image: url("../images/intro-bg-1200.png"); } }
   @media only screen and (min-width: 768px) {
     .intro {
-      background-image: url("../images/intro-bg-1000.png");
+      background-image: url("../images/intro-bg-1600.png");
       text-align: left; } }
-  @media only screen and (min-width: 992px) {
-    .intro {
-      background-image: url("../images/intro-bg-1200.png"); } }
-  @media only screen and (min-width: 1200px) {
-    .intro {
-      background-image: url("../images/intro-bg-1600.png"); } }
   .intro__welcome {
     font-size: 1.5rem;
     margin-bottom: 1rem; }
@@ -3110,7 +3104,7 @@ a {
 
 .portfolio__intro {
   position: relative;
-  background-image: url("../images/portfolio-intro-600.png");
+  background-image: url("../images/portfolio-intro-1000.png");
   background-size: cover;
   background-attachment: fixed;
   height: 100vh;
@@ -3122,14 +3116,8 @@ a {
   line-height: 1.2; }
   @media only screen and (min-width: 576px) {
     .portfolio__intro {
-      background-image: url("../images/portfolio-intro-800.png"); } }
-  @media only screen and (min-width: 768px) {
-    .portfolio__intro {
-      background-image: url("../images/portfolio-intro-1000.png"); } }
-  @media only screen and (min-width: 992px) {
-    .portfolio__intro {
       background-image: url("../images/portfolio-intro-1200.png"); } }
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 768px) {
     .portfolio__intro {
       background-image: url("../images/portfolio-intro-1600.png"); } }
   .portfolio__intro-title {
