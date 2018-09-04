@@ -5,12 +5,20 @@
     background-size: cover;
     background-attachment: fixed;
     height: 100vh;
+    min-height: 500px;
+    max-height: 800px;
     display: flex;
     align-items: center;
     justify-content: center;
     line-height: 1.2;
     &-title {
-      font-size: 3.5rem;
+      font-size: 2rem;
+      @include xSmallUp {
+        font-size: 2.5rem;
+      }
+      @include smallUp {
+        font-size: 3.5rem;
+      }
     }
     &-scroll {
       position: absolute;
@@ -22,22 +30,36 @@
     }
   }
   &__project {
-    padding: 0 4rem;
     height: 100%;
-    background-image: url("../images/projects/project-bg.png");
+    background-image: url("../images/projects/works.jpg");
     background-repeat: repeat;
-    &-row {
+    padding-bottom: 4rem;
+    @include mediumUp {
       display: flex;
+      align-items: center;
+    }
+    &-row {
+      @include mediumUp {
+        display: flex;
+      }
     }
     &-img {
-      width: 40%;
+      margin: 0 auto 3rem;
+      @include mediumUp {
+        margin: 0;
+      }
       a {
         display: block;
         width: 100%;
         position: relative;
         img {
           display: block;
-          width: 100%;
+          margin: 0 auto;
+          height: 30vh;
+          @include mediumUp {
+            height: unset;
+            width: 30vw;
+          }
         }
         span {
           color: #fff;
@@ -61,7 +83,9 @@
         }
         &:hover {
           span {
-            opacity: 1;
+            @include xSmallUp {
+              opacity: 1;
+            }
             label {
               transform: translateY(0);
             }
@@ -70,19 +94,32 @@
       }
     }
     &-description {
-      width: 50%;
-      padding: 4rem;
+      @include mediumUp {
+        padding-left: 4rem;
+      }
       &-title {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+        @include smallUp {
+          margin-bottom: 2rem;
+        }
         h3 {
-          font-size: 2rem;
+          font-size: 1.2rem;
           color: $color-primary;
+          @include xSmallUp {
+            font-size: 1.5rem;
+          }
+          @include smallUp {
+            font-size: 2rem;
+          }
         }
       }
       &-text {
         margin-bottom: 2rem;
         p {
-          font-size: 1.2rem;
+          font-size: 1rem;
+          @include xSmallUp {
+            font-size: 1.2rem;
+          }
           a {
             color: $color-primary;
             &:hover {
@@ -96,11 +133,10 @@
         flex-wrap: wrap;
       }
       &-skillBox {
-        width: 100px;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 10px 5px;
+        padding: 10px;
         margin-bottom: 0.5rem;
         background-color: $bg-color;
         box-shadow: 2px 2px 2px 0px #000;
@@ -108,8 +144,10 @@
           margin-right: 0.5rem;
         }
         span {
-          font-size: 0.85rem;
-          margin-right: 0.5rem;
+          font-size: 0.75rem;
+          @include xSmallUp {
+            font-size: 0.85rem;
+          }
         }
         img {
           width: 20%;
@@ -122,7 +160,10 @@
     }
     &-link {
       &:not(:last-child) {
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
+        @include smallUp {
+          margin-bottom: 0.5rem;
+        }
       }
       a {
         i {
@@ -139,7 +180,7 @@
 
 #fp-nav ul li a span,
 .fp-slidesNav ul li a span {
-  background-color: $color-primary;
+  background-color: $color-gray-light;
 }
 
 #fp-nav ul li a.active span,
@@ -147,4 +188,11 @@
 #fp-nav ul li:hover a.active span,
 .fp-slidesNav ul li:hover a.active span {
   background-color: #fff;
+}
+
+#fp-nav.fp-right {
+  right: 8px;
+  @include xSmallUp {
+    right: 17px;
+  }
 }

@@ -1,12 +1,22 @@
 .footer {
   background-color: $color-gray-dark;
-  padding: 2rem 0;
+  padding: 4rem 0;
+  text-align: center;
+  @include smallUp {
+    text-align: left;
+  }
   &__row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include smallUp {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
   &__logo {
+    margin-bottom: 1rem;
+    @include smallUp {
+      margin-bottom: 0;
+    }
     h2 {
       font-size: 2.5rem;
       font-weight: bold;
@@ -14,6 +24,10 @@
     }
   }
   &__info {
+    margin-bottom: 1rem;
+    @include smallUp {
+      margin-bottom: 0;
+    }
     &-email {
       a {
         transition: .4s;

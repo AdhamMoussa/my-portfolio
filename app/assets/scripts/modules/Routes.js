@@ -11,6 +11,8 @@ export default class Routes {
     this.portfolioLink = $("#portfolio-link");
     this.contactLink = $("#contact-link");
     this.header = $("#header");
+    this.current = null;
+    this.fullpage = false;
     this.routing();
   }
   initSmoothScroll() {
@@ -23,10 +25,19 @@ export default class Routes {
       }
     );
   }
-  switchContent(dataSrc) {
+  switchContent(dataSrc, type) {
+    const that = this;
     this.mainElement.html("");
     // load target html and append to main element
-    this.mainElement.load(dataSrc);
+    this.mainElement.load(dataSrc, null, function() {
+      if (type === "portfolio") {
+        // set section padding-top
+        const headerHeight = that.header.height();
+        $(".portfolio__project").each(function() {
+          $(this).css("padding-top", `${headerHeight+50}px`);
+        });
+      }
+    });
   }
   switchActiveLink(navLink) {
     this.navLinks.each(function() {
@@ -55,45 +66,56 @@ export default class Routes {
     );
   }
   initFullpage() {
+    this.fullpage = true;
     const that = this;
     $.getScript(
-      "https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/vendors/scrolloverflow.min.js",
       () => {
-        that.fullpageSlider = new fullpage("#fullpage", {
-          licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
-          navigation: true,
-          loopBottom: true,
-          onLeave: function(origin, destination, direction) {
-            if (destination.index > 0) {
-              that.header.addClass("header--solid");
-            } else {
-              that.header.removeClass("header--solid");
-            }
+        $.getScript(
+          "https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.extensions.min.js",
+          () => {
+            that.fullpageSlider = new fullpage("#fullpage", {
+              licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
+              navigation: true,
+              loopBottom: true,
+              scrollOverflow: true,
+              touchSensitivity: 18,
+              scrollOverflowReset: true,
+              onLeave: function(origin, destination, direction) {
+                if (destination.index > 0) {
+                  that.header.addClass("header--solid");
+                } else {
+                  that.header.removeClass("header--solid");
+                }
+              }
+            });
           }
-        });
+        );
       }
     );
   }
   destroyFullPage() {
-    if (this.fullpageSlider) {
+    if (this.fullpage) {
       this.fullpageSlider.destroy("all");
+      this.fullpage = false;
     }
   }
   routesHandler(dataSrc, navLink, type) {
+    this.current = type;
     // show loading page
     this.loadingElement.fadeIn(500);
     // hide Nav menu
     this.navMenu.removeClass("navigation-menu--visible");
-    this.switchActiveLink(navLink);
-    this.switchContent(dataSrc);
-    if (type !== 'portfolio') {
+    if (type !== "portfolio") {
       this.destroyFullPage();
     }
-    if (type === 'home') {
+    this.switchActiveLink(navLink);
+    this.switchContent(dataSrc, type);
+    if (type === "home") {
       this.initSmoothScroll();
-    } else if (type === 'portfolio') {
+    } else if (type === "portfolio") {
       this.initFullpage();
-    } else if (type === 'contact') {
+    } else if (type === "contact") {
       this.initGoogleMap();
     }
     // remove loading page
@@ -105,19 +127,17 @@ export default class Routes {
     router
       .on({
         "": function() {
-          that.routesHandler("/my-portfolio/home.html", that.homeLink, 'home');
-          console.log("home routing");
+          that.routesHandler("/my-portfolio/home.html", that.homeLink, "home");
         },
         "/portfolio": function() {
           that.routesHandler(
             "/my-portfolio/portfolio.html",
             that.portfolioLink,
-            'portfolio'
+            "portfolio"
           );
-          console.log("portf routing");
         },
         "/contact": function() {
-          that.routesHandler("/my-portfolio/contact.html", that.contactLink, 'contact');
+          that.routesHandler("/my-portfolio/contact.html", that.contactLink, "contact");
         }
       })
       .resolve();

@@ -4,10 +4,15 @@
   left: 0;
   right: 0;
   width: 100%;
-  height: 0;
   transition: .5s;
-  padding: 2rem 0;
+  padding: 1rem 0;
   z-index: 1000;
+  @include smallUp {
+    padding: 1.5rem 0;
+  }
+  @include mediumUp {
+    padding: 2rem 0;
+  }
   &__inner {
     display: flex;
     justify-content: space-between;
@@ -18,9 +23,12 @@
   }
   &__logo {
     h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: bold;
       margin: 0;
+      @include mediumUp {
+        font-size: 2.5rem;
+      }
     }
   }
   &__menu-icon {
@@ -30,17 +38,27 @@
     & > span {
       text-transform: uppercase;
       margin-right: 1rem;
+      font-size: .7rem;
+      @include mediumUp {
+        font-size: 1rem;
+      }
     }
     &-container {
-      height: 22px;
+      height: 19px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      @include mediumUp {
+        height: 22px;
+      }
       div {
-        width: 35px;
+        width: 30px;
         height: 2px;
         background-color: #fff;
+        @include mediumUp {
+          width: 35px;
+        }
       }
     }
   }
@@ -49,7 +67,6 @@
 .header--solid {
   background-color: $color-gray-dark;
   box-shadow: 0px 0px 1px 0px #000000;
-  height: unset;
   .header__inner {
     transform: translateY(0);
   }

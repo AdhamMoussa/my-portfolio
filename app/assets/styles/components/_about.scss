@@ -1,49 +1,72 @@
 .about {
   &__article {
+    padding-top: 7rem;
+    @include smallUp {
+      padding-top: 10rem;
+    }
     &-row {
-      display: flex;
-      justify-content: space-between;
+      @include mediumUp {
+        display: flex;
+        justify-content: space-between;
+      }
     }
     &-title {
-      width: 20px;
-      background-color: $color-primary;
-      padding-top: 10rem;
+      margin-bottom: 2rem;
+      @include mediumUp {
+        width: 25%;
+      }
       &-inner {
-        position: sticky;
-        top: 10rem;
+        @include mediumUp {
+          position: sticky;
+          top: 10rem;
+        }
       }
       h3 {
         position: relative;
-        font-size: 2rem;
+        font-size: 1.7rem;
         white-space: nowrap;
-        // transform: translateX(-25px);
+        text-decoration: underline;
         text-transform: uppercase;
         background-color: $bg-color;
         color: $color-gray-light;
+        @include smallUp {
+          font-size: 2rem;
+        }
       }
     }
     &-main {
-      width: 70%;
-      padding-top: 10rem;
+      @include mediumUp {
+        width: 70%;
+      }
+
       p {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         color: $color-gray-light;
         &:not(:last-child) {
           margin-bottom: 2rem;
         }
+        @include smallUp {
+          font-size: 1.4rem;
+        }
       }
     }
     &:last-child {
+      margin-bottom: 5rem;
       .about__article-title,
       .about__article-main {
-        padding-bottom: 10rem;
+        @include mediumUp {
+          padding-top: 10rem;
+        }
       }
     }
   }
   &__skills {
     &-section {
       &:not(:last-child) {
-        margin-bottom: 8rem;
+        margin-bottom: 3rem;
+        @include smallUp {
+          margin-bottom: 8rem;
+        }
       }
       &-title{
         h4 {
@@ -56,17 +79,23 @@
       &-main {
         display: flex;
         justify-content: space-around;
-        align-items: flex-end;
+        align-items: baseline;
         flex-wrap: wrap;
       }
     }
     &-box {
-      width: 70px;
+      width: 20%;
+      margin: 0 6.666667% 3rem;
+      @include xSmallUp {
+        width: 70px;
+        margin: 0;
+      }
       @include largeUp {
         width: 100px;
       }
       &-img {
         img {
+          display: block;
           max-width: 100%;
           opacity: .8;
         }
@@ -81,8 +110,30 @@
     }
   }
   &__edu {
+    ul {
+      margin: 0;
+      padding: 0;
+    }
     li {
       margin-bottom: 2rem;
+      list-style-type: circle;
+      font-size: 1.2rem;
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+      @include smallUp {
+        font-size: 1.4rem;
+      }
+      span {
+        display: block;
+        font-size: 1rem;
+        margin: 1rem 0;
+      }
+      a {
+        display: inline-block;
+        color: $color-primary;
+        font-size: 16px;
+      }
     }
   }
 }
