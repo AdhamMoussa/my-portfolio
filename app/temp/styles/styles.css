@@ -2821,7 +2821,7 @@ a {
 .intro {
   position: relative;
   background-image: url("../images/intro-bg-1000.png");
-  background-size: auto 100%;
+  background-size: cover;
   background-attachment: fixed;
   height: 100vh;
   min-height: 500px;
