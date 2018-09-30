@@ -3215,7 +3215,8 @@ a {
         margin-bottom: 2rem; } }
     .portfolio__project-description-title h3 {
       font-size: 1.2rem;
-      color: #796018; }
+      color: #796018;
+      text-shadow: 2px 2px #000; }
       @media only screen and (min-width: 400px) {
         .portfolio__project-description-title h3 {
           font-size: 1.5rem; } }
