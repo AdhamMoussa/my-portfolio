@@ -131,17 +131,17 @@ export default class Routes {
     router
       .on({
         "": function() {
-          that.routesHandler("/home.html", that.homeLink, "home");
+          that.routesHandler("/my-portfolio/home.html", that.homeLink, "home");
         },
         "/portfolio": function() {
           that.routesHandler(
-            "/portfolio.html",
+            "/my-portfolio/portfolio.html",
             that.portfolioLink,
             "portfolio"
           );
         },
         "/contact": function() {
-          that.routesHandler("/contact.html", that.contactLink, "contact");
+          that.routesHandler("/my-portfolio/contact.html", that.contactLink, "contact");
         }
       })
       .resolve();
